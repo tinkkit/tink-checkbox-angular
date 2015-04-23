@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="tink.skeleton">
+<html ng-app="tink.checkbox">
 <head>
   <meta charset="utf-8">
   <title>Tink module</title>
@@ -7,15 +7,58 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,minimum-scale=1.0">
   <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/tink-core/assets/tink/tink.css" />
   <!-- endbower -->
 </head>
-<body>
+<body ng-controller="ctrl">
 
-<tink-skeleton data-text="Skeleton is working fine!"></tink-skeleton>
+<div tink-checkbox-list="" data-checked="selectedIds" ng-model="data"></div>
 
 <!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
 <!-- endbower -->
 
-<script src="scripts/directives/skeleton.js"></script>
+<script>
+var module;
+  try {
+    module = angular.module('tink.checkbox');
+  } catch (e) {
+    module = angular.module('tink.checkbox', []);
+  }
+
+module.controller('ctrl',function($scope){
+  $scope.data = [{
+    id: '1',
+    name: 'België',
+    selected: false,
+    childs: [{
+      id: '2',
+      name: 'Antwerpen',
+      selected: false
+    }, {
+      id: '3',
+      name: 'Vlaams-brabant',
+      selected: true,
+      childs: [{
+        id: '4',
+        name: 'Leuven',
+        selected: true
+      }]
+    }]
+  }];
+});
+
+</script>
+
+<script src="scripts/controller/checkbox.js"></script>
+<script src="scripts/directives/checkbox.js"></script>
+
 </body>
 </html>
