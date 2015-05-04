@@ -34,28 +34,118 @@ var module;
   }
 
 module.controller('ctrl',function($scope){
-  $scope.data = [{
-    id: '1',
-    name: 'België',
-    selected: false,
-    childs: [{
-      id: '2',
-      name: 'Antwerpen',
-      selected: false
-    }, {
-      id: '3',
-      name: 'Vlaams-brabant',
-      selected: true,
-      childs: [{
-        id: '4',
-        name: 'Leuven',
-        selected: true
-      }]
-    }]
-  }];
+   $scope.dataX = [];
+  $scope.dataY= ['12'];
+$scope.addID = function(){
+  $scope.dataY.push($scope.idtomap);
+};
+$scope.removeID = function(){
+  var index = $scope.dataY.indexOf($scope.idtomap);
+  if(index !== -1){
+    $scope.dataY.splice(index,1);
+  }
+  
+};
+  $scope.showCheck = function(){console.log('fo')
+    $scope.dataX = [
+    {
+                  id:'33',
+                  name:'Lubbeekstraat',
+                  
+                  children:[]
+                  },
+
+                      {
+                  id:'343',
+                  name:'Lubbeekstraat',
+                  },
+        {
+          id:'1',
+          name:'Belgie',
+          
+          children:[
+            {
+              id:'2',
+              name:'Antwerpen',
+              
+            },
+            {
+              id:'3',
+              name:'Vlaams-brabant',
+              
+              children:[
+                {
+                id:'4',
+                name:'Leuven',
+                
+                },
+                {
+                id:'5',
+                name:'Heverlee',
+                
+                  children:[
+                  {
+                  id:'6',
+                  name:'Doleegstraat',
+                  },
+                  {
+                  id:'7',
+                  name:'Bergstraat',
+                  children:[
+                  {
+                  id:'8',
+                  name:'Doleegstraat',
+                  },
+                  {
+                  id:'9',
+                  name:'Bergstraat',
+                  children:[
+                  {
+                  id:'10',
+                  name:'Doleegstraat',
+                  },
+                  {
+                  id:'11',
+                  name:'Bergstraat',
+                  },
+                  {
+                  id:'12',
+                  name:'Lubbeekstraat',
+                  },
+                ]
+                  },
+                  {
+                  id:'13',
+                  name:'Lubbeekstraat',
+                  },
+                ]
+                  },
+                  {
+                  id:'14',
+                  name:'Lubbeekstraat',
+                  },
+                ]
+                },
+              ]
+            }
+          ]
+        }
+      ];
+  };
 });
 
 </script>
+<<<<<<< Updated upstream
+=======
+<div tink-checkbox-list="masterc" data-checked="dataY" ng-model="dataX" class="form-group">
+
+</div>
+
+
+<button ng-click="showCheck()"> change </button>
+<input type="text" ng-model="idtomap" />
+<button ng-click="addID()">addId</button><button ng-click="removeID()">remove</button>
+>>>>>>> Stashed changes
 
 <script src="scripts/controller/checkbox.js"></script>
 <script src="scripts/directives/checkbox.js"></script>
