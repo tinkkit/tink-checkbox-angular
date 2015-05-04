@@ -22,8 +22,6 @@
           elementHulp = checkboxCtrl.createTemplate(scope.ngModel);
           element.replaceWith(elementHulp);
           element = elementHulp;
-        }else{
-          console.warn('you have to give a array of objects check the docs !');
         }
       },true);
 

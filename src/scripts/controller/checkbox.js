@@ -51,24 +51,25 @@
   * Function to map every slected property to a map object.
   */
   this.mapArray = function(arr,map){
-    //Loop trough the array
-    arr.forEach(function (element) {
-      //rename element
-      var obj = element;
-      if(scope.checked && scope.checked.indexOf(obj.id) !== -1){
-        obj.selected = true;
-      }else{
-        obj.selected = false;
-      }
-      //set the selected value and rename the id so it is always a valid id.
-      map['id'+obj.id] = obj.selected;
-      //If the object has children go trough.
-      if(obj && obj.children && obj.children instanceof Array && obj.children.length > 0){
-        //Loop trough the children of the object.
-        self.mapArray(obj.children,map);
-      }
-    });
-
+    if(arr && arr instanceof Array){
+      //Loop trough the array
+      arr.forEach(function (element) {
+        //rename element
+        var obj = element;
+        if(scope.checked && scope.checked.indexOf(obj.id) !== -1){
+          obj.selected = true;
+        }else{
+          obj.selected = false;
+        }
+        //set the selected value and rename the id so it is always a valid id.
+        map['id'+obj.id] = obj.selected;
+        //If the object has children go trough.
+        if(obj && obj.children && obj.children instanceof Array && obj.children.length > 0){
+          //Loop trough the children of the object.
+          self.mapArray(obj.children,map);
+        }
+      });
+    }
   };
 
 
@@ -143,18 +144,20 @@
 
   function objectToWatch(arr){
     var found = {watch:[],parents:[]};
-    arr.forEach(function (element) {
-      var obj = element;
-      var myChild = null;
-      if(obj && obj.children && obj.children instanceof Array && obj.children.length > 0){
-        found.parents.push(obj);
-        myChild = objectToWatch(obj.children);
-        found.watch = found.watch.concat(myChild.watch);
-        found.parents = found.parents.concat(myChild.parents);
-      }else{
-        found.watch.push(obj);
-      }
-    });
+    if(arr && arr instanceof Array){
+      arr.forEach(function (element) {
+        var obj = element;
+        var myChild = null;
+        if(obj && obj.children && obj.children instanceof Array && obj.children.length > 0){
+          found.parents.push(obj);
+          myChild = objectToWatch(obj.children);
+          found.watch = found.watch.concat(myChild.watch);
+          found.parents = found.parents.concat(myChild.parents);
+        }else{
+          found.watch.push(obj);
+        }
+      });
+    }
     return found;
   }
 
