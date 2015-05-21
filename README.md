@@ -4,9 +4,9 @@ v1.0.2
 
 ## What is this repository for?
 
-The Tink Checkbox Angular Directive gives you the possibility to create nested checkboxes, where the child elements will influence the state of the parent checkbox.
+The Tink checkbox Angular directive gives you the possibility to create nested checkboxes, where the child elements will influence the state of the parent checkbox.
 
-Tink is an in-house developed easy-to-use front end framework for quick prototyping and simple deployment of all kinds of websites and apps, keeping a uniform and consistent look and feel.
+Tink is an in-house developed easy-to-use front-end framework for quick prototyping and simple deployment of all kinds of websites and apps, keeping a uniform and consistent look and feel.
 
 ## Setup
 
@@ -18,11 +18,55 @@ Tink is an in-house developed easy-to-use front end framework for quick prototyp
 ### Install
 
 1. Go to the root of your project and type the following command in your terminal:
-   `bower install tink-checkbox-angular --save`
 
-2. Include `dist/tink-checkbox-angular.js` and its necessary dependencies in your project.
+  `bower install tink-checkbox-angular --save`
 
-3. On http://tink.digipolis.be you will find all necessary documentation.
+2. Add the following files to your project:
+
+  `<link rel="stylesheet" href="bower_components/tink-core/dist/tink.css" />` (or one of the Tink themes)
+
+  `<script src="bower_components/tink-accordion-angular/dist/tink-checkbox-angular.js"></script>`
+
+
+----------
+
+
+## How to use
+
+### tink-checkbox
+
+### Component
+
+###### Checkbox code: ######
+
+```html
+<div tink-checkbox-list="" data-checked="selectedIds" ng-model="data"></div>
+```
+
+###### Possible controller code: ######
+
+```html
+// Data model
+$scope.data = [{
+  id: 1,
+  name: 'België',
+  selected: false,
+  childs: [{
+    id: 2,
+    name: 'Antwerpen',
+    selected: false
+  }, {
+    id: 3,
+    name: 'Vlaams-brabant',
+    selected: true,
+    childs: [{
+      id: 4,
+      name: 'Leuven',
+      selected: true
+    }]
+  }]
+}];
+```
 
 ## Contribution guidelines
 
