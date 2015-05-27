@@ -68,6 +68,13 @@ $scope.data = [{
 }];
 ```
 
+### Options
+
+Attr | Type | Default | Details
+--- | --- | --- | ---
+data-ng-model | `[Object]` | `[]` | An array of objects wich will be viewed in the checkbox list.
+data-checked | `[Object]` | `[]` |This variable holds an array of the selected checkbox id's.
+
 ## Contribution guidelines
 
 * If you're not sure, drop us a note
