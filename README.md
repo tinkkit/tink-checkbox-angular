@@ -1,6 +1,6 @@
 # Tink checkbox Angular directive
 
-v1.0.6
+v1.0.7
 
 ## What is this repository for?
 
@@ -19,27 +19,27 @@ Tink is an in-house developed easy-to-use front-end framework for quick prototyp
 
 1. Go to the root of your project and type the following command in your terminal:
 
-  `bower install tink-checkbox-angular --save`
+   `bower install tink-checkbox-angular --save`
 
 2. Add the following files to your project:
 
-  `<link rel="stylesheet" href="bower_components/tink-core/dist/tink.css" />` (or one of the Tink themes)
+   `<link rel="stylesheet" href="bower_components/tink-core/dist/tink.css" />` (or one of the Tink themes)
 
-  `<script src="bower_components/tink-checkbox-angular/dist/tink-checkbox-angular.js"></script>`
+   `<script src="bower_components/tink-checkbox-angular/dist/tink-checkbox-angular.js"></script>`
 
 3. Add `tink.checkbox` to your app module's dependency.
 
-  `angular.module('myApp', ['tink.checkbox']);`
+   `angular.module('myApp', ['tink.checkbox']);`
+
 
 
 ----------
 
 
+
 ## How to use
 
 ### tink-checkbox
-
-### Component
 
 ###### Checkbox code: ######
 
@@ -78,6 +78,10 @@ Attr | Type | Default | Details
 --- | --- | --- | ---
 data-ng-model | `[Object]` | `[]` | An array of objects wich will be viewed in the checkbox list.
 data-checked | `[Object]` | `[]` |This variable holds an array of the selected checkbox id's.
+
+### Example
+
+A working example can be found in [the Tink documentation](http://tink.digipolis.be/#/docs/directives/checkbox#example).
 
 ## Contribution guidelines
 
